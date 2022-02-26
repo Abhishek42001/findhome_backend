@@ -15,5 +15,5 @@ def ApplyBookmark(request):
     serializer=ApplyBookmarkSerializer(data=data)
     if not serializer.is_valid():
         return Response({"status":400,"message":serializer.errors})
-    # print(serializer.create(validated_data=data))
+    serializer.create(validated_data=data)
     return Response({"status":200,"message":"Bookmarked Successfully..."})

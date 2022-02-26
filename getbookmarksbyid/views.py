@@ -12,14 +12,17 @@ from apply.serializers import ApplySerializer
 @api_view(['POST'])
 def GetBookmarksbyid(request):
     data=request.data['user_id']
+    print("data:",data)
     data=ApplyBookmark.objects.filter(user_id=data)
     serializer=ApplyBookmarkSerializer(data,many=True)
-    #print(serializer.data)
-    l=[]
-    for i in range(len(serializer.data[0]['item_id'])):
-        print(serializer.data[0]['item_id'][i]['item_id'])
-        l.append(serializer.data[0]['item_id'][i]['item_id'])
-    data2=Apply.objects.filter(id__in=l)
-    serializer2=ApplySerializer(data2,many=True)
-    #print(serializer2.data)
-    return Response({"status":200,"data":serializer2.data})
+    print("serializer data:",serializer.data)
+    if len(serializer.data)>0:
+        l=[]
+        for i in range(len(serializer.data[0]['item_id'])):
+            print(serializer.data[0]['item_id'][i]['item_id'])
+            l.append(serializer.data[0]['item_id'][i]['item_id'])
+        data2=Apply.objects.filter(id__in=l)
+        serializer2=ApplySerializer(data2,many=True)
+        #print(serializer2.data)
+        return Response({"status":200,"data":serializer2.data})
+    return Response({"status":200,"data":serializer.data})
