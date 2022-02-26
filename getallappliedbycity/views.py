@@ -8,7 +8,7 @@ from apply.serializers import ApplySerializer
 @api_view(['GET'])
 def Getappliedbycity(request):
     data=request.GET.get('city')
-    print(data)
+    # print(data)
     obs=Apply.objects.filter(city=str(data))
     serializer=ApplySerializer(obs,many=True)
     return Response({"data":serializer.data},status=200)

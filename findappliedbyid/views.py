@@ -9,6 +9,6 @@ from rest_framework.decorators import api_view
 @api_view(['POST'])
 def findappliedbyid(request):
     data=request.data
-    obs=Apply.objects.filter(user_id=data['user_id'])
+    obs=Apply.objects.filter(user_id=data['user_id']).order_by('-created_date')
     serializer=ApplySerializer(obs,many=True)
     return Response({"status":200,"data":serializer.data})
