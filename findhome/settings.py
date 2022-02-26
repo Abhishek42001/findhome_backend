@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'getbookmarksbyid',
     'getallappliedbycity',
     'deleteappliedbyid',
+    'checkbookmarksbyid',
+    'deletebookmarkbyid',
     'rest_framework'
 ]
 

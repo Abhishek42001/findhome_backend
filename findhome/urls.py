@@ -27,6 +27,8 @@ urlpatterns = [
     path('getbookmarksbyid',include('getbookmarksbyid.urls')),
     path('getallappliedbycity',include('getallappliedbycity.urls')),
     path('deleteappliedbyid',include('deleteappliedbyid.urls')),
+    path('checkbookmarkbyid',include('checkbookmarksbyid.urls')),
+    path('deletebookmarkbyid',include('deletebookmarkbyid.urls')),
 ]
 
 if settings.DEBUG:
