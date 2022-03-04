@@ -16,5 +16,5 @@ class MessageSerializer(serializers.ModelSerializer):
     sender=SenderSerializer(read_only=True)
     receiver=ReceiverSerializer(read_only=True)
     class Meta:
-        fields=("message",'sender','receiver')
+        fields=("message",'sender','receiver','timestamp')
         model=Message    
