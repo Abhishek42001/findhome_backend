@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'deletebookmarkbyid',
     'chat',
     'getallchatsbyid',
+    'allchatsbtwntwoid',
     'rest_framework'
 ]
 

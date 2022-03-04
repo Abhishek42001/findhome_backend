@@ -31,6 +31,7 @@ urlpatterns = [
     path('deletebookmarkbyid',include('deletebookmarkbyid.urls')),
     path('sendmessage',include('chat.urls')),
     path('getallchatsbyid',include('getallchatsbyid.urls')),
+    path('getallchatsbetweentwoid',include('allchatsbtwntwoid.urls')),
 ]
 
 if settings.DEBUG:
