@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-2yze$us832%6)si15hib9i(_n1sjq8^g)t2)b*+90uik1ekp=-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.105.69']
+ALLOWED_HOSTS = ['192.168.105.69','192.168.43.215']
 
 
 # Application definition
@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'deleteappliedbyid',
     'checkbookmarksbyid',
     'deletebookmarkbyid',
+    'chat',
+    'getallchatsbyid',
     'rest_framework'
 ]
 

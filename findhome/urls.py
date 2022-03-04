@@ -29,6 +29,8 @@ urlpatterns = [
     path('deleteappliedbyid',include('deleteappliedbyid.urls')),
     path('checkbookmarkbyid',include('checkbookmarksbyid.urls')),
     path('deletebookmarkbyid',include('deletebookmarkbyid.urls')),
+    path('sendmessage',include('chat.urls')),
+    path('getallchatsbyid',include('getallchatsbyid.urls')),
 ]
 
 if settings.DEBUG:
