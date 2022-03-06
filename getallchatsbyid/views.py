@@ -5,20 +5,40 @@ from chat.models import Message,Sender,Receiver
 from chat.serializers import MessageSerializer,ReceiverSerializer
 from dateutil.parser import *
 from django.db.models import Q
+
 # Create your views here.
 
+d = {}
 
+        
 
 @api_view(['POST'])
 def GetallChats(request):
     data=request.data
+    global d
     try:
         data=Message.objects.filter(Q(sender__sender_userid=data['sender_userid'])|Q(receiver__receiver_userid=data['sender_userid']))\
-            .order_by('sender_id','receiver_id','timestamp').distinct('sender','receiver')
+            .order_by('sender_id','receiver_id','-timestamp').distinct('sender','receiver')
         response_list=[]
-        for i in data:
-            response_list.append(MessageSerializer(i).data)
-        print(data)
+        for j,i in enumerate(data):
+            temp=MessageSerializer(i).data
+            d[temp['receiver']['receiver_userid']+temp['sender']['sender_userid']]=j
+            #response_list.append(temp)
+        data=list(data)
+        for j,i in enumerate(data):
+            temp=MessageSerializer(i).data
+            if i and (temp['sender']['sender_userid']+temp['receiver']['receiver_userid']) in d:
+                a=parse(temp['timestamp'])
+                b=parse(MessageSerializer(data[d[temp['sender']['sender_userid']+temp['receiver']['receiver_userid']]]).data['timestamp'])
+                if a>b:
+                    response_list.append(temp)
+                else:
+                    response_list.append(MessageSerializer(data[d[temp['sender']['sender_userid']+temp['receiver']['receiver_userid']]]).data)
+                data[d[temp['sender']['sender_userid']+temp['receiver']['receiver_userid']]]=None
+            elif i != None:
+                response_list.append(temp)
+        
+        # print(response_list)
         return Response({"status":200,"data":response_list})
     except Exception as e:
         print(e)

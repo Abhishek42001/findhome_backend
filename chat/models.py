@@ -10,7 +10,7 @@ class Sender(models.Model):
 
 
     def __str__(self):
-        return self.sender_userid
+        return self.sender_name
 
 class Receiver(models.Model):
     receiver_userid=models.CharField(max_length=100)
@@ -19,7 +19,7 @@ class Receiver(models.Model):
     receiver_city=models.CharField(max_length=50)
 
     def __str__(self):
-        return self.receiver_userid
+        return self.receiver_name
 
     
 
