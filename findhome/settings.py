@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 
-ALLOWED_HOSTS = ['findhome.herokuapp.com']
+ALLOWED_HOSTS = ['desolate-badlands-03028.herokuapp.com']
 SECRET_KEY=config("SECRET_KEY")
 DEBUG=config("DEBUG",default=True,cast=bool)
 # Application definition
