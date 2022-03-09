@@ -24,6 +24,7 @@ class Apply(models.Model):
     type=models.CharField(max_length=50)
     main_image=models.ImageField()
     created_date=models.DateTimeField('date created',default=timezone.now)
+    profile_pic_url=models.CharField(max_length=1000)
 
 class ApplywithImages(models.Model):
     user_details=models.ForeignKey(Apply,on_delete=models.CASCADE,related_name="tt")

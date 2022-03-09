@@ -19,7 +19,6 @@ class ApplyBookmarkSerializer(serializers.ModelSerializer):
 
         if ApplyBookmark.objects.filter(user_id=user_id[0]).exists():
             obj=ApplyBookmark.objects.get(user_id=user_id[0])
-            
             instance=Item_id.objects.create(user_id_foriegn_key=obj,item_id=int(item_id[0]))
         else:
             obj=ApplyBookmark.objects.create(user_id=user_id[0])

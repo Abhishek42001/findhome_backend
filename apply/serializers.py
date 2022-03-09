@@ -29,7 +29,8 @@ class ApplySerializer(serializers.ModelSerializer):
             number_of_bedrooms=validated_data.get("number_of_bedrooms"),
             city=validated_data.get("city"),
             main_image=validated_data.get("main_image"),
-            type=validated_data.get("type")
+            type=validated_data.get("type"),
+            profile_pic_url=validated_data.get("profile_pic_url"),
         )
         for image_data in images:
         	ApplywithImages.objects.create(user_details=obj, images=image_data)

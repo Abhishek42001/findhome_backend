@@ -13,7 +13,7 @@ import base64
 def apply(request):
     parser_classes = (MultiPartParser, FormParser)
     data=request.data
-    print("from view:",request.data['images'])
+    print("from view:",request.data)
     serializer=ApplySerializer(data=data)
 
     if not serializer.is_valid():
