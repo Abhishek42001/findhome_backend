@@ -94,13 +94,23 @@ WSGI_APPLICATION = 'findhome.wsgi.application'
 
 
 
+# DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql',
+#        'NAME': 'abhishek',
+#        'USER': 'abhishek',
+#        'PASSWORD': 'abhishek',
+#        'HOST': 'localhost',
+#        'PORT': '5432',
+#    }
+# }
 DATABASES = {
    'default': {
        'ENGINE': 'django.db.backends.postgresql',
        'NAME': 'abhishek',
-       'USER': 'abhishek',
-       'PASSWORD': 'abhishek',
-       'HOST': 'localhost',
+       'USER': 'vhkkptxqbvvjtm',
+       'PASSWORD': '2cc2da7fffea5f5f5ac5f24badd2a5e7b39425cb6f2c38e444b35448f95c62ee',
+       'HOST': 'ec2-3-212-45-192.compute-1.amazonaws.com',
        'PORT': '5432',
    }
 }
