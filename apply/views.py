@@ -15,12 +15,11 @@ def apply(request):
     data=request.data
     print("from view:",request.data)
     serializer=ApplySerializer(data=data)
-
+    print("ddd")
     if not serializer.is_valid():
-        #print(serializer.errors)
+        print(serializer.errors)
         return Response({"status":400,"message":serializer.errors})
     id_obj=serializer.create(validated_data=data)
-    print(serializer.data)
     # images=data.getlist(key='images')
     # for image in images:
     #     print(image)
