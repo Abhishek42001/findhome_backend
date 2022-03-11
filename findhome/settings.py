@@ -100,26 +100,26 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 
 
-DATABASES = {
-   'default': {
-       'ENGINE': 'django.db.backends.postgresql',
-       'NAME': 'abhishek',
-       'USER': 'abhishek',
-       'PASSWORD': 'abhishek',
-       'HOST': 'localhost',
-       'PORT': '5432',
-   }
-}
 # DATABASES = {
 #    'default': {
 #        'ENGINE': 'django.db.backends.postgresql',
 #        'NAME': 'abhishek',
-#        'USER': 'fsdqnanilvpmtc',
-#        'PASSWORD': '2c3940ceef3849359de72a0da23cdde221a8c2c6ccd493db264e18dec94bdef8',
-#        'HOST': 'ec2-3-230-238-86.compute-1.amazonaws.com',
+#        'USER': 'abhishek',
+#        'PASSWORD': 'abhishek',
+#        'HOST': 'localhost',
 #        'PORT': '5432',
 #    }
 # }
+DATABASES = {
+   'default': {
+       'ENGINE': 'django.db.backends.postgresql',
+       'NAME': 'abhishek',
+       'USER': 'fsdqnanilvpmtc',
+       'PASSWORD': '2c3940ceef3849359de72a0da23cdde221a8c2c6ccd493db264e18dec94bdef8',
+       'HOST': 'ec2-3-230-238-86.compute-1.amazonaws.com',
+       'PORT': '5432',
+   }
+}
 # db_from_env = dj_database_url.config(conn_max_age=600)
 # DATABASES['default'].update(db_from_env)
 
