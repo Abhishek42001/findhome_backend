@@ -64,6 +64,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = 'findhome.urls'
@@ -86,7 +87,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'findhome.wsgi.application'
 
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
