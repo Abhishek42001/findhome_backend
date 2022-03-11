@@ -14,7 +14,7 @@ import os
 from pathlib import Path
 from decouple import config
 import dj_database_url
-
+import cloudinary
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -22,9 +22,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
+cloudinary.config( 
+  cloud_name = "dmmodq1b9", 
+  api_key = "622694263975641", 
+  api_secret = "n9wnB70_Cf5JvPdggAT93lqtf9k" 
+)
 
-
-ALLOWED_HOSTS = ['desolate-badlands-03028.herokuapp.com']
+ALLOWED_HOSTS = ['desolate-badlands-03028.herokuapp.com','192.168.43.215','192.168.105.69']
 SECRET_KEY=config("SECRET_KEY")
 DEBUG=config("DEBUG",default=True,cast=bool)
 # Application definition
@@ -48,7 +52,8 @@ INSTALLED_APPS = [
     'chat',
     'getallchatsbyid',
     'allchatsbtwntwoid',
-    'rest_framework'
+    'rest_framework',
+    'cloudinary'
 ]
 
 MIDDLEWARE = [
@@ -95,28 +100,28 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 
 
-# DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.postgresql',
-#        'NAME': 'abhishek',
-#        'USER': 'abhishek',
-#        'PASSWORD': 'abhishek',
-#        'HOST': 'localhost',
-#        'PORT': '5432',
-#    }
-# }
 DATABASES = {
    'default': {
        'ENGINE': 'django.db.backends.postgresql',
        'NAME': 'abhishek',
-       'USER': 'fsdqnanilvpmtc',
-       'PASSWORD': '2c3940ceef3849359de72a0da23cdde221a8c2c6ccd493db264e18dec94bdef8',
-       'HOST': 'ec2-3-230-238-86.compute-1.amazonaws.com',
+       'USER': 'abhishek',
+       'PASSWORD': 'abhishek',
+       'HOST': 'localhost',
        'PORT': '5432',
    }
 }
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
+# DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql',
+#        'NAME': 'abhishek',
+#        'USER': 'fsdqnanilvpmtc',
+#        'PASSWORD': '2c3940ceef3849359de72a0da23cdde221a8c2c6ccd493db264e18dec94bdef8',
+#        'HOST': 'ec2-3-230-238-86.compute-1.amazonaws.com',
+#        'PORT': '5432',
+#    }
+# }
+# db_from_env = dj_database_url.config(conn_max_age=600)
+# DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators

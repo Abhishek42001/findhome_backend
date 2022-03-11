@@ -3,6 +3,7 @@ from django.db import models
 import datetime
 import os
 from django.utils import timezone
+from cloudinary.models import CloudinaryField
 # Create your models here.
 def filepath(request, filename):
     old_filename = filename
@@ -22,13 +23,15 @@ class Apply(models.Model):
     number_of_bedrooms=models.IntegerField()
     city=models.CharField(max_length=50)
     type=models.CharField(max_length=50)
-    main_image=models.ImageField()
+    main_image=CloudinaryField('image')
+    # main_image=models.ImageField()
     created_date=models.DateTimeField('date created',default=timezone.now)
     profile_pic_url=models.CharField(max_length=1000)
 
 class ApplywithImages(models.Model):
     user_details=models.ForeignKey(Apply,on_delete=models.CASCADE,related_name="tt")
-    images=models.ImageField()
+    # images=models.ImageField()
+    images=CloudinaryField('image')
 
 # {
 #     "id":11,
