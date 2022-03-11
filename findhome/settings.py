@@ -87,7 +87,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'findhome.wsgi.application'
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
