@@ -1,1 +1,1 @@
-web: gunicorn findhome.wsgi --log-file -z
+web: gunicorn findhome.wsgi --log-file -
