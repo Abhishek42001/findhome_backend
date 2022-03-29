@@ -9,18 +9,13 @@ from apply.serializers import ApplySerializer,ApplywithImagesSerializer
 @api_view(['GET'])
 def GetApplied(request):
     obs=Apply.objects.all().order_by('-created_date')
-    # print(obs)
-    # for i in obs:
-    #     p=i.children.all()
-    #     serializer2=ApplywithImagesSerializer(p,many=True)
-        #print(serializer2.data)
-    # obs2=ApplywithImages.objects.all()
-    # print(obs)
-    # for u in obs:
-    #         #children.append(u.get_all_children())
-    #     print(u.get_all_children())
-    # print(list(obs))
-    # obs2=ApplywithImages.objects.all()
     serializer=ApplySerializer(obs,many=True)
-    #serializer2=ApplywithImagesSerializer(obs,many=True)
     return Response({"status":200,"data":serializer.data})
+
+@api_view(['POST'])
+def updateApplied(request):
+    data=request.data
+    Apply.objects.filter(user_id=data.getlist('user_id')[0]).update(
+        profile_pic_url=data.getlist('profile_pic_url')[0]
+    )
+    return Response({"status":200,"data":"Successfully Updated"})

@@ -20,18 +20,19 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('apply',include('apply.urls')),
+    path('apply/',include('apply.urls')),
     path('applied/',include('applied.urls')),
-    path('getappliedbyid',include('findappliedbyid.urls')),
-    path('applybookmark',include('applybookmark.urls')),
-    path('getbookmarksbyid',include('getbookmarksbyid.urls')),
-    path('getallappliedbycity',include('getallappliedbycity.urls')),
-    path('deleteappliedbyid',include('deleteappliedbyid.urls')),
-    path('checkbookmarkbyid',include('checkbookmarksbyid.urls')),
-    path('deletebookmarkbyid',include('deletebookmarkbyid.urls')),
-    path('sendmessage',include('chat.urls')),
-    path('getallchatsbyid',include('getallchatsbyid.urls')),
-    path('getallchatsbetweentwoid',include('allchatsbtwntwoid.urls')),
+    path('getappliedbyid/',include('findappliedbyid.urls')),
+    path('applybookmark/',include('applybookmark.urls')),
+    path('getbookmarksbyid/',include('getbookmarksbyid.urls')),
+    path('getallappliedbycity/',include('getallappliedbycity.urls')),
+    path('deleteappliedbyid/',include('deleteappliedbyid.urls')),
+    path('checkbookmarkbyid/',include('checkbookmarksbyid.urls')),
+    path('deletebookmarkbyid/',include('deletebookmarkbyid.urls')),
+    path('sendmessage/',include('chat.urls')),
+    path('getallchatsbyid/',include('getallchatsbyid.urls')),
+    path('getallchatsbetweentwoid/',include('allchatsbtwntwoid.urls')),
+    path('updateapplied/',include('updateapplied.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:

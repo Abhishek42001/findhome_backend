@@ -1,6 +1,7 @@
 from django.urls import path,include
-from .views import GetApplied
+from .views import GetApplied,updateApplied
 
 urlpatterns = [
-    path('',GetApplied)
+    path('',GetApplied),
+    path('updateApplied/',updateApplied),
 ]
