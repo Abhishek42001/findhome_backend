@@ -9,7 +9,7 @@ from apply.serializers import ApplySerializer
 def Getappliedbycity(request):
     data=request.GET.get('city')
     # print(data)
-    obs=Apply.objects.filter(city=str(data))
+    obs=Apply.objects.filter(city=str(data)).order_by('-created_date')
     serializer=ApplySerializer(obs,many=True)
     return Response({"data":serializer.data},status=200)
     
