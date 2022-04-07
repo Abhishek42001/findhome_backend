@@ -14,7 +14,7 @@ def updateCover(request):
     data=request.data
     try:
         #user id for security check, means no other user can update
-        Apply.objects.filter(user_id=data.get('user_id'),id=data.get('id')).update(main_image=data.get("main_image"),created_date=datetime.now())
+        Apply.objects.filter(user_id=data.get('user_id'),id=data.get('id')).update(main_image=data.get("main_image"),created_date=datetime.datetime.now())
         return Response({"status":200,"message":"Success"})
     except Exception as e:
         return Response({"status":400,"message":e.args[0]})
@@ -34,7 +34,7 @@ def updateOtherInfos(request):
             number_of_bedrooms=data.get('number_of_bedrooms'),
             city=data.get('city'),
             type=data.get('type'),
-            created_date=datetime.now()
+            created_date=datetime.datetime.now()
         )
         return Response({"status":200,"message":"Success"})
     except Exception as e:
