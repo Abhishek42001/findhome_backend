@@ -14,10 +14,10 @@ def updateCover(request):
     data=request.data
     try:
         #user id for security check, means no other user can update
-        Apply.objects.filter(user_id=data.get('user_id'),id=data.get('id')).update(main_image=data.get("main_image"))
+        Apply.objects.filter(user_id=data.get('user_id'),id=data.get('id')).update(main_image=data.get("main_image"),created_date=datetime.now())
         return Response({"status":200,"message":"Success"})
     except Exception as e:
-        return Response({"status":200,"message":e.args[0]})
+        return Response({"status":400,"message":e.args[0]})
     
 @api_view(['POST'])
 def updateOtherInfos(request):
@@ -38,7 +38,7 @@ def updateOtherInfos(request):
         )
         return Response({"status":200,"message":"Success"})
     except Exception as e:
-        return Response({"status":200,"message":e.args[0]})
+        return Response({"status":400,"message":e.args[0]})
 
 @api_view(['POST'])
 def updateAdditionalPhotos(request):
@@ -46,5 +46,5 @@ def updateAdditionalPhotos(request):
     try:
         pass
     except Exception as e:
-        return Response({"status":200,"message":e.args[0]})
+        return Response({"status":400,"message":e.args[0]})
  
