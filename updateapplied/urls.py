@@ -1,6 +1,6 @@
 from django.urls import path,include
-from .views import update
+from .views import updateCover
 
 urlpatterns = [
-    path('',update)
+    path('updateCoverPhoto/',updateCover)
 ]
