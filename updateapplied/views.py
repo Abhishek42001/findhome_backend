@@ -48,6 +48,7 @@ def updateOtherInfos(request):
         )
         return Response({"status":200,"message":"Success"})
     except Exception as e:
+        print(e)
         return Response({"status":400,"message":e.args[0]})
 
 @api_view(['POST'])
