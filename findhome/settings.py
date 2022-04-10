@@ -22,6 +22,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
+TIME_ZONE="Asia/Kolkata"
+
 cloudinary.config( 
   cloud_name = "dmmodq1b9", 
   api_key = "622694263975641", 
@@ -31,6 +33,7 @@ cloudinary.config(
 ALLOWED_HOSTS = ['desolate-badlands-03028.herokuapp.com','192.168.43.215','192.168.105.69']
 SECRET_KEY=config("SECRET_KEY")
 DEBUG=config("DEBUG",default=True,cast=bool)
+
 # Application definition
 
 INSTALLED_APPS = [
