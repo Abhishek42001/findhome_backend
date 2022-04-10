@@ -3,5 +3,5 @@ from .views import updateCover,updateOtherInfos
 
 urlpatterns = [
     path('updateCoverPhoto/',updateCover),
-    path('updateOtherInfos',updateOtherInfos)
+    path('updateOtherInfos/',updateOtherInfos)
 ]
