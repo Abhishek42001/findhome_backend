@@ -22,8 +22,8 @@ def updateCover(request):
         print(data.get('database_id'))        
         print(data.get('image'))
         print(data.get("public_id"))
+        cloudinary.uploader.upload(data.get('image'),public_id=data.get("public_id")),
         Apply.objects.filter(user_id=data.get('user_id'),id=data.get('database_id')).update(
-            main_image=cloudinary.uploader.upload(data.get('image'),public_id=data.get("public_id")),
             created_date=timezone.now()
         )
         return Response({"status":200,"message":"Success"})
