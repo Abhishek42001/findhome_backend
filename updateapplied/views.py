@@ -40,7 +40,7 @@ def updateOtherInfos(request):
             number_of_bedrooms=data.get('number_of_bedrooms'),
             city=data.get('city'),
             type=data.get('type'),
-            # created_date=timezone.now()
+            created_date=timezone.now()
         )
         return Response({"status":200,"message":"Success"})
     except Exception as e:
