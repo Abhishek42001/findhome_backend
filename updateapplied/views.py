@@ -2,7 +2,7 @@ from django.shortcuts import render
 from apply.models import Apply
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-import datetime
+from django.utils import timezone
 from apply.serializers import ApplySerializer
 # Create your views here.
 
@@ -14,9 +14,10 @@ def updateCover(request):
     data=request.data
     try:
         #user id for security check, means no other user can update
-        Apply.objects.filter(user_id=data.get('user_id'),id=data.get('id')).update(
-            main_image=data.get("image"),created_date=datetime.datetime.now()
-        )
+        # Apply.objects.filter(user_id=data.get('user_id'),id=data.get('id')).update(
+        #     main_image=data.get("image"),created_date=datetime.datetime.now()
+        # )
+        Apply.objects.filter(user_id=data.get('user_id'),id=data.get('id')).get()
         return Response({"status":200,"message":"Success"})
     except Exception as e:
         print(e)
@@ -37,7 +38,7 @@ def updateOtherInfos(request):
             number_of_bedrooms=data.get('number_of_bedrooms'),
             city=data.get('city'),
             type=data.get('type'),
-            created_date=datetime.datetime.now()
+            created_date=timezone.now()
         )
         return Response({"status":200,"message":"Success"})
     except Exception as e:
