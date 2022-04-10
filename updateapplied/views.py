@@ -34,13 +34,13 @@ def updateOtherInfos(request):
             title=data.get('title'),
             phone_number=data.get('phone_number'),
             address=data.get('address'),
-            description=data.get('description'),
-            price=data.get('price'),
-            number_of_bathrooms=data.get('number_of_bathrooms'),
-            number_of_bedrooms=data.get('number_of_bedrooms'),
-            city=data.get('city'),
-            type=data.get('type'),
-            created_date=timezone.now()
+            # description=data.get('description'),
+            # price=data.get('price'),
+            # number_of_bathrooms=data.get('number_of_bathrooms'),
+            # number_of_bedrooms=data.get('number_of_bedrooms'),
+            # city=data.get('city'),
+            # type=data.get('type'),
+            # created_date=timezone.now()
         )
         return Response({"status":200,"message":"Success"})
     except Exception as e:
