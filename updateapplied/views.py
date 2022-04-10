@@ -20,7 +20,7 @@ def updateCover(request):
         # print(data.get('database_id'))        
         # print(data.get('image'))
         # print(data.get("public_id"))
-        print("Status:",cloudinary.uploader.upload(data.get('image'),public_id=data.get("public_id"),version=data.get('version'),invalidate_caches=True)),
+        print("Status:",cloudinary.uploader.upload(data.get('image'),invalidate=True,public_id=data.get("public_id"))),
         Apply.objects.filter(user_id=data.get('user_id'),id=data.get('database_id')).update(
             created_date=timezone.now()
         )
