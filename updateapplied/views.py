@@ -15,14 +15,11 @@ def updateCover(request):
     data=request.data
     try:
         #user id for security check, means no other user can update
-        # Apply.objects.filter(user_id=data.get('user_id'),id=data.get('id')).update(
-        #     main_image=data.get("image"),created_date=datetime.datetime.now()
-        # )
-        print(data.get('user_id'))
-        print(data.get('database_id'))        
-        print(data.get('image'))
-        print(data.get("public_id"))
-        cloudinary.uploader.upload(data.get('image'),public_id=data.get("public_id")),
+        # print(data.get('user_id'))
+        # print(data.get('database_id'))        
+        # print(data.get('image'))
+        # print(data.get("public_id"))
+        print("Status:",cloudinary.uploader.upload(data.get('image'),public_id=data.get("public_id"))),
         Apply.objects.filter(user_id=data.get('user_id'),id=data.get('database_id')).update(
             created_date=timezone.now()
         )
