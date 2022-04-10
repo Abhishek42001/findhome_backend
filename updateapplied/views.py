@@ -17,7 +17,9 @@ def updateCover(request):
         # Apply.objects.filter(user_id=data.get('user_id'),id=data.get('id')).update(
         #     main_image=data.get("image"),created_date=datetime.datetime.now()
         # )
-        Apply.objects.filter(user_id=data.get('user_id'),id=data.get('id')).get()
+        data=Apply.objects.filter(user_id=data.get('user_id'),id=data.get('id')).get(
+            main_image=data.get('image'),created_date=timezone.now()
+        )
         return Response({"status":200,"message":"Success"})
     except Exception as e:
         print(e)
