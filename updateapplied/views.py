@@ -4,6 +4,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.utils import timezone
 from apply.serializers import ApplySerializer
+import cloudinary.uploader
 # Create your views here.
 
 #incomplete
@@ -17,8 +18,10 @@ def updateCover(request):
         # Apply.objects.filter(user_id=data.get('user_id'),id=data.get('id')).update(
         #     main_image=data.get("image"),created_date=datetime.datetime.now()
         # )
+        
         data=Apply.objects.filter(user_id=data.get('user_id'),id=data.get('id')).get(
-            main_image=data.get('image'),created_date=timezone.now()
+            main_image=cloudinary.uploader.upload(data.get('image'),public_id=data.get("public_id")),
+            created_date=timezone.now()
         )
         return Response({"status":200,"message":"Success"})
     except Exception as e:
