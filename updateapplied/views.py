@@ -62,7 +62,7 @@ def deleteAdditionalPhotos(request):
     data=request.data
     try:
         cloudinary.uploader.destroy(data.get('public_id'))
-        Apply.objects.filter(user_id=data.get('user_id'),tt__id=data.get('model_id')).delete()
+        ApplywithImages.objects.filter(id=data.get('model_id')).delete()
         return Response({"status":200,"message":"Success"})
     except Exception as e:
         return Response({"status":400,"message":e.args[0]})
