@@ -47,10 +47,13 @@ def updateOtherInfos(request):
         return Response({"status":400,"message":e.args[0]})
 
 @api_view(['POST'])
-def updateAdditionalPhotos(request):
+def uploadAdditionalPhotos(request):
     data=request.data
     try:
-        pass
+        obj=Apply.objects.filter(user_id=data.get('user_id'),id=data.get('model_id'))
+        for image_data in data.get('images'):
+            ApplywithImages.objects.create(user_details=obj, images=image_data)
+        return Response({"status":200,"message":"Success"})
     except Exception as e:
         return Response({"status":400,"message":e.args[0]})
 
