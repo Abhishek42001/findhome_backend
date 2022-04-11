@@ -4,7 +4,7 @@ from .models import Apply,ApplywithImages
 class ApplywithImagesSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model=ApplywithImages
-        fields=("images",)
+        fields=("images","id")
     
 
 class ApplySerializer(serializers.ModelSerializer):

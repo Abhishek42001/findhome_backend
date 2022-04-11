@@ -1,10 +1,9 @@
 from importlib import invalidate_caches
 from django.shortcuts import render
-from apply.models import Apply
+from apply.models import Apply,ApplywithImages
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.utils import timezone
-from apply.serializers import ApplySerializer
 import cloudinary.uploader
 # Create your views here.
 
@@ -52,6 +51,16 @@ def updateAdditionalPhotos(request):
     data=request.data
     try:
         pass
+    except Exception as e:
+        return Response({"status":400,"message":e.args[0]})
+
+@api_view(['POST'])
+def deleteAdditionalPhotos(request):
+    data=request.data
+    try:
+        cloudinary.uploader.destroy(data.get('public_id'))
+        Apply.objects.filter(user_id=data.get('user_id')).tt.filter(id=data.get('model_id')).delete()
+        return Response({"status":200,"message":"Success"})
     except Exception as e:
         return Response({"status":400,"message":e.args[0]})
  
