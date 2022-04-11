@@ -50,7 +50,7 @@ def updateOtherInfos(request):
 def uploadAdditionalPhotos(request):
     data=request.data
     try:
-        obj=Apply.objects.filter(user_id=data.get('user_id'),id=data.get('model_id'))
+        obj=Apply.objects.get(user_id=data.get('user_id'),id=data.get('model_id'))
         for image_data in data.get('images'):
             ApplywithImages.objects.create(user_details=obj, images=image_data)
         return Response({"status":200,"message":"Success"})
